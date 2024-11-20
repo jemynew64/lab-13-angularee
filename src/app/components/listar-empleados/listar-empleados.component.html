@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-body text-center">
+            <span class="titulo">LISTADO DE EMPLEADOS</span>
+            <button class="btn btn-success float-end" routerLink="/crear-empleado">NUEVO</button>
+            <table class="table table-striped mt-3" *ngIf="empleados.length > 0">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Email</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let empleado of empleados">
+                  <td>{{ empleado.nombre }}</td>
+                  <td>{{ empleado.apellidos }}</td>
+                  <td>{{ empleado.email }}</td>
+                  <td>
+                    <i class="fas fa-edit text-primary" (click)="editarEmpleado(empleado.id)"></i>
+                    <i class="fas fa-trash text-danger" (click)="eliminarEmpleado(empleado.id)"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <h5 *ngIf="empleados.length === 0" style="text-align: start; margin-top: 10px;">No hay empleados para mostrar</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
